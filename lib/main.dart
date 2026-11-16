@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'pages/liste_produits_page.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+    return MaterialApp(
+      title: 'Atelier Produits',
+      debugShowCheckedModeBanner: false,
+      home: ListeProduitsPage(),
     );
   }
 }
