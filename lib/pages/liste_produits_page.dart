@@ -46,9 +46,8 @@ class ListeProduitsPage extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => DetailsProduitPage(
-              nom: produit.nom,
-              prix: produit.prix,
-            ),
+           produit: produit,
+),
           ),
         );
       },
