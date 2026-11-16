@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/produit.dart';
+import 'details_produit_page.dart';
 
 class ListeProduitsPage extends StatelessWidget {
   ListeProduitsPage({super.key});
@@ -33,10 +34,28 @@ class ListeProduitsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final produit = produits[index];
 
-          return ListTile(
-            title: Text(produit.nom),
-            subtitle: Text('${produit.prix} \$'),
-          );
+          return Card(
+  elevation: 3,
+  margin: const EdgeInsets.all(10),
+  child: ListTile(
+    title: Text(produit.nom),
+    subtitle: Text('${produit.prix} \$'),
+    trailing: ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailsProduitPage(
+              nom: produit.nom,
+              prix: produit.prix,
+            ),
+          ),
+        );
+      },
+      child: const Text('Voir'),
+    ),
+  ),
+);
         },
       ),
     );
